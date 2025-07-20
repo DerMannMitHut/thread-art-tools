@@ -55,7 +55,7 @@ def load_thread_art(file_path):
         sys.exit(1)
 
 
-def visualize_thread_art(nails, thread, output_path, image_size=(800, 800), nail_size=50):
+def visualize_thread_art(nails, thread, output_path, image_size=(800, 800), nail_size=25):
     """Create visualization of thread art."""
     fig, ax = plt.subplots(figsize=(10, 10))
     
@@ -66,22 +66,22 @@ def visualize_thread_art(nails, thread, output_path, image_size=(800, 800), nail
     ax.set_title('Thread Art Visualization', fontsize=16, fontweight='bold')
     ax.grid(True, alpha=0.3)
     
-    # Draw the thread path
-    thread_x = []
-    thread_y = []
-    
-    for nail_idx in thread:
-        x, y = nails[nail_idx]
-        thread_x.append(x)
-        thread_y.append(y)
-    
-    # Plot thread as connected lines
-    ax.plot(thread_x, thread_y, 'b-', linewidth=1, alpha=0.7, label='Thread')
+    # Draw the thread path as individual segments for proper transparency overlapping
+    if len(thread) > 1:
+        for i in range(len(thread) - 1):
+            start_nail = nails[thread[i]]
+            end_nail = nails[thread[i + 1]]
+            
+            ax.plot([start_nail[0], end_nail[0]], [start_nail[1], end_nail[1]], 
+                   'k-', linewidth=1, alpha=0.1)
+        
+        # Add legend entry (only once)
+        ax.plot([], [], 'k-', linewidth=1, alpha=0.1, label='Thread')
     
     # Draw nails
     for i, (x, y) in enumerate(nails):
-        circle = patches.Circle((x, y), 0.015, facecolor='red', edgecolor='black', 
-                               linewidth=2, zorder=10)
+        circle = patches.Circle((x, y), 0.004, facecolor='red', edgecolor='black',
+                               linewidth=1, zorder=10)
         ax.add_patch(circle)
         # Add nail numbers
         ax.annotate(str(i), (x, y), xytext=(5, 5), textcoords='offset points',
