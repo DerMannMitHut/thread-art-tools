@@ -1,0 +1,21 @@
+[project]
+name = "thread-art-visualizer"
+version = "0.1.0"
+description = "A tool to read and visualize thread art files in YAML format"
+authors = [
+    {name = "Dom"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "matplotlib (>=3.10.3,<4.0.0)",
+    "pyyaml (>=6.0.2,<7.0.0)"
+]
+
+[project.scripts]
+thread-art = "thread_art_visualizer:main"
+thread-art-generate = "thread_art_generator:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

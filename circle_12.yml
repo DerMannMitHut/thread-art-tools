@@ -1,0 +1,20 @@
+# Thread Art File
+# Generated with 12 nails in circle shape
+# Shape maximized within unit square (0..1)
+# Thread path is empty - ready for manual editing
+
+nails:
+  - [1.0, 0.5]    # nail 0
+  - [0.933013, 0.75]    # nail 1
+  - [0.75, 0.933013]    # nail 2
+  - [0.5, 1.0]    # nail 3
+  - [0.25, 0.933013]    # nail 4
+  - [0.066987, 0.75]    # nail 5
+  - [0.0, 0.5]    # nail 6
+  - [0.066987, 0.25]    # nail 7
+  - [0.25, 0.066987]    # nail 8
+  - [0.5, 0.0]    # nail 9
+  - [0.75, 0.066987]    # nail 10
+  - [0.933013, 0.25]    # nail 11
+
+thread: []
